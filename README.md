@@ -19,7 +19,7 @@ The terraform plan is to create `aks` cluster, node-pools and container register
 
 | Name | Description |
 |------|-------------|
-| azure\_container\_registry\_name| Azure contain registry url  |
+| azure\_container\_registry\_name| Azure container registry url  |
 
 ## Requirements
 
