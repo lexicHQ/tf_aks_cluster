@@ -24,8 +24,10 @@ resource "azurerm_kubernetes_cluster" "az_cluster" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   dns_prefix          = var.resource_name
-
+ 
   http_application_routing_enabled = true
+
+  kubernetes_version = "1.26.12"
 
   default_node_pool {
     name       = "default"
@@ -79,7 +81,7 @@ resource "azurerm_role_assignment" "acr_assignment" {
 # need static ip for accessing load balacner from outside
 resource "azurerm_public_ip" "ip" {
   name                = "${var.resource_name}__publicIPForLB"
-  domain_name_label   = var.resource_name
+  domain_name_label   = "${var.resource_name}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = local.node_resource_group
   allocation_method   = "Static"
@@ -94,4 +96,3 @@ resource "azurerm_public_ip" "ip" {
     azurerm_kubernetes_cluster.az_cluster
   ]
 }
-

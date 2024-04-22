@@ -29,6 +29,11 @@ The terraform plan is to create `aks` cluster, node-pools and container register
 | azurerm | >= 3.0.0 |
 
 
+## Resources
+
+[Creating Terraform Remote state](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli)
+
+
 ## License
 
 [![License](https://img.shields.io/github/license/SmartloopAI/tf_aks_cluster
