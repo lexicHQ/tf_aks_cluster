@@ -33,6 +33,8 @@ The terraform plan is to create `aks` cluster, node-pools and container register
 
 [Creating Terraform Remote state](https://learn.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=azure-cli)
 
+[k8s Device Plugin](https://github.com/NVIDIA/k8s-device-plugin)
+
 
 ## License
 
