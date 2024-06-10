@@ -27,7 +27,7 @@ resource "azurerm_kubernetes_cluster" "az_cluster" {
  
   http_application_routing_enabled = true
 
-  kubernetes_version = "1.26.12"
+  kubernetes_version = "1.27.9"
 
   default_node_pool {
     name       = "default"

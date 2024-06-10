@@ -46,4 +46,4 @@ spec:
           hostPath:
             path: /var/lib/kubelet/device-plugins
       nodeSelector:
-          workload: nlp
+          workload: llm
