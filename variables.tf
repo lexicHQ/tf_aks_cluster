@@ -20,6 +20,12 @@ variable "cluster_name" {
   description = "Name of the cluster"
 }
 
+variable "respository_name" {
+  description = "Name of the cluster"
+  default="smartlp"
+}
+
+
 variable "node_pools" {
   type = map(object({
     vm_size     = string

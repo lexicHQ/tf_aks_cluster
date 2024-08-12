@@ -6,7 +6,7 @@ locals {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = var.resource_name
+  name     = "${var.resource_name}"
   location = var.location
   tags = {
     name = "Iac"
@@ -15,7 +15,7 @@ resource "azurerm_resource_group" "rg" {
 
 resource "random_pet" "rg" {
   keepers = {
-    resource_group_name = azurerm_resource_group.rg.name
+    resource_group_name = "${azurerm_resource_group.rg.name}"
   }
 }
 
@@ -63,7 +63,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "node_pools" {
 }
 
 resource "azurerm_container_registry" "acr" {
-  name                = var.resource_name
+  name                = var.respository_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   sku                 = "Standard"
@@ -80,8 +80,8 @@ resource "azurerm_role_assignment" "acr_assignment" {
 
 # need static ip for accessing load balacner from outside
 resource "azurerm_public_ip" "ip" {
-  name                = "${var.resource_name}__publicIPForLB"
-  domain_name_label   = "${var.resource_name}"
+  name                = "${var.cluster_name}-public_ip"
+  domain_name_label   = "${var.cluster_name}"
   location            = azurerm_resource_group.rg.location
   resource_group_name = local.node_resource_group
   allocation_method   = "Static"
